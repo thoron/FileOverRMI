@@ -47,7 +47,7 @@ public class DataWrapperTest {
 		}
 		File g = new File(Utils.TEST_FILE_MEDIUM);
 		if (!g.exists()) {
-			Utils.writeLargeFile(g);
+			Utils.writeMediumFile(g);
 		}
 	}
 
@@ -322,9 +322,10 @@ public class DataWrapperTest {
 		try {
 			FileInputStream fin = new FileInputStream(f);
 			// JDK1.1+
-			BufferedReader myInput = new BufferedReader(new InputStreamReader(
+			@SuppressWarnings("resource")
+			BufferedReader br = new BufferedReader(new InputStreamReader(
 					fin));
-			while ((thisLine = myInput.readLine()) != null) {
+			while ((thisLine = br.readLine()) != null) {
 				System.out.println(thisLine);
 			}
 		} catch (Exception e) {

@@ -20,7 +20,7 @@ public class Utils {
 			FileWriter fstream = new FileWriter(f);
 			out = new BufferedWriter(fstream);
 			for (int i = 1; i < NO_TEST_ROWS; i++) {
-				out.write("" + i);
+				out.write('A');
 				out.newLine();
 			}
 		} catch (Exception e) {
